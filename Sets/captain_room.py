@@ -1,0 +1,5 @@
+n = int(input())
+arr = list(map(int, input().split()))
+s = set(arr)
+room = int((sum(s) * n - sum(arr)) / (n - 1))
+print(room)
