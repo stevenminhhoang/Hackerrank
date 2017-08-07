@@ -1,22 +1,17 @@
 from collections import defaultdict
+d = defaultdict(list)
+list1=[]
 
-n, m = list(map(int, input().split()))
-a = list()
-b = list()
-for _ in range(n):
-    a.append(input())
-for _ in range(m):
-    b.append(input())
+n, m = map(int,input().split())
 
-for element in b:
-    if element in a:
-        indices = [str(i + 1) for i, x in enumerate(a) if x == element]
-        print(' '.join(indices))
+for i in range(0,n):
+    d[input()].append(i+1)
+
+for i in range(0,m):
+    list1=list1+[input()]
+
+for i in list1:
+    if i in d:
+        print(" ".join( map(str,d[i]) ))
     else:
         print(-1)
-
-
-
-# a = ["ok", "bar", "foo", "bar"]
-# indices = [str(i) for i, x in enumerate(a) if x == "bar" ]
-# print(' '.join(indices))
