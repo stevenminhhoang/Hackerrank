@@ -1,4 +1,5 @@
 from collections import *
+
 total = 0
 x = int(input())
 X = Counter(list(map(int, input().split())))

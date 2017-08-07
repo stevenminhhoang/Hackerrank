@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 d = defaultdict(list)
 list1=[]
 
