@@ -1,16 +1,17 @@
 from collections import deque
 
-testcase = int(input())
-for _ in range(testcase):
-    n = int(input())
-    d = deque(map(int, input().split()))
-    ls = []
-    for _ in range(len(d)):
-        a = d.popleft()
-        ls.append(a)
-        d.reverse()
-    # print(ls)
-    if all([ls[i] >= ls[i + 1] for i in range(len(ls) - 1)]):
-        print('Yes')
-    else:
-        print('No')
+def stackable(cubes):
+    curr = cubes.popleft() if cubes[0] > cubes[-1] else cubes.pop()
+    while cubes:
+        left, right = cubes[0], cubes[-1]
+        if left >= right and left <= curr:
+            curr = cubes.popleft()
+        elif right > left and right <= curr:
+            curr = cubes.pop()
+        else:
+            return False
+    return True
+
+for i in range(int(input())):
+    n, cubes = input(), deque(map(int, input().split()))
+    print('Yes' if stackable(cubes) else 'No') 
